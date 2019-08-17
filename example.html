@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Dials</title>
+	<style>
+		body {
+			padding-left: 20px;
+		}
+		pixDial {
+			height: 60px;
+			width: 276px;
+		}
+		pixClock {
+			height: 60px;
+			width: 360px;
+		}
+		</style>
+</head>
+
+<body>
+	<p>Number</p>
+	<pixdial type="number" numbers="5" value="-123" align="right"></pixdial>
+	<p>Range</p>
+	<pixdial type="range" numbers="5" from="-100" to="100" interval="200" align="right"></pixdial>
+	<p>Auto-updating</p>
+	<pixdial type="auto-update" numbers="5" value="666" interval="2000" align="right"></pixdial>
+	<button id="updateAutoUpdating" onclick="increaseAutoUpdating()">increase</button>
+	<p>Clock</p>
+	<pixclock type="clock" align="center"></pixclock>
+	<script>
+		function increaseAutoUpdating() {
+			let dial = document.querySelector("#updateAutoUpdating").previousElementSibling;
+			let value = dial.getAttribute("value");
+			value++;
+			dial.setAttribute("value", value);
+		}
+	</script>
+	<script src="pixelDials.js"></script>
+</body>
+
+</html>
